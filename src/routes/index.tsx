@@ -284,7 +284,7 @@ function Index() {
                 © 2026 WebFrame Studio
               </span>
               <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                Hecho con cuadrículas
+                Feito com grelhas
               </span>
             </div>
           </footer>
