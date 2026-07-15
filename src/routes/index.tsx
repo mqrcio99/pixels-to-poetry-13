@@ -174,31 +174,31 @@ function Index() {
                 className="text-[11px] uppercase tracking-[0.25em] opacity-90"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
-                Manifiesto — 01
+                Manifesto — 01
               </p>
               <h2 className="mt-3 text-2xl font-black leading-[1.1] md:text-4xl">
-                Un lienzo honesto,
+                Uma tela honesta,
                 <br />
-                sin adornos innecesarios.
+                sem adornos desnecessários.
               </h2>
               <p className="mt-5 max-w-[58ch] text-[13.5px] leading-[1.65] opacity-95 md:text-[15px]">
-                Diseñamos con bordes visibles, tipografías serias y una sola
-                nota de color. La cuadrícula manda, el contenido responde.
-                Cada bloque tiene una razón de existir y ninguno pide
-                disculpas por ser rectangular.
+                Desenhamos com margens visíveis, tipografias sérias e uma
+                única nota de cor. A grelha manda, o conteúdo responde. Cada
+                bloco tem uma razão para existir e nenhum pede desculpa por
+                ser rectangular.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <button
                   className="px-5 py-2 text-[12px] font-bold uppercase tracking-widest"
                   style={{ background: INK, color: "#fff" }}
                 >
-                  Empezar →
+                  Começar →
                 </button>
                 <button
                   className="px-5 py-2 text-[12px] font-bold uppercase tracking-widest"
                   style={{ background: "transparent", color: "#fff", border: "1.5px solid #fff" }}
                 >
-                  Ver bloques
+                  Ver blocos
                 </button>
               </div>
             </div>
