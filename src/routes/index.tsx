@@ -216,19 +216,19 @@ function Index() {
               <ul className="mt-4 space-y-3 text-[13px] leading-relaxed">
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">01</span>
-                  <span>Bordes visibles, jerarquía clara.</span>
+                  <span>Margens visíveis, hierarquia clara.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">02</span>
-                  <span>Un solo acento: naranja quemado.</span>
+                  <span>Um único acento: laranja queimado.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">03</span>
-                  <span>Textos que respiran, botones que empujan.</span>
+                  <span>Textos que respiram, botões que empurram.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">04</span>
-                  <span>Cero decoración sin propósito.</span>
+                  <span>Zero decoração sem propósito.</span>
                 </li>
               </ul>
             </aside>
