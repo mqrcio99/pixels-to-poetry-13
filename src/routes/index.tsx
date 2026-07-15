@@ -146,7 +146,7 @@ function Index() {
             className="mt-4 flex flex-wrap items-center gap-5 pb-4 text-[12px] font-medium uppercase tracking-[0.14em]"
             style={{ borderBottom: `1.5px solid ${INK}` }}
           >
-            {["Inicio", "Categorías", "Blog", "Equipo", "Vista 360"].map(
+            {["Início", "Categorias", "Blog", "Equipa", "Vista 360"].map(
               (label, i) => (
                 <a
                   key={label}
