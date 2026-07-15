@@ -4,14 +4,14 @@ import { MapPin, Search } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WebFrame — A Wireframe Playground" },
+      { title: "WebFrame — Um Playground de Wireframes" },
       {
         name: "description",
         content:
-          "WebFrame is a bold, high-contrast layout system for prototyping web pages fast.",
+          "WebFrame é um sistema de layout ousado e de alto contraste para prototipar páginas web rapidamente.",
       },
       { property: "og:title", content: "WebFrame" },
-      { property: "og:description", content: "A wireframe playground." },
+      { property: "og:description", content: "Um playground de wireframes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
