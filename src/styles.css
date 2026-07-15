@@ -67,8 +67,21 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --radius: 0.25rem;
+  --background: oklch(0.985 0.005 90);
+  --foreground: oklch(0.18 0.02 260);
+  --ink: oklch(0.18 0.02 260);
+  --paper: oklch(0.985 0.005 90);
+  --accent-coral: oklch(0.72 0.18 20);
+  --accent-lilac: oklch(0.78 0.13 310);
+  --accent-mint: oklch(0.86 0.09 170);
+  --accent-sky: oklch(0.85 0.08 240);
+  --rule: oklch(0.18 0.02 260 / 0.15);
+  --grad-bubble: radial-gradient(circle at 20% 30%, oklch(0.78 0.18 20 / 0.85), transparent 55%),
+                 radial-gradient(circle at 70% 40%, oklch(0.75 0.2 340 / 0.8), transparent 55%),
+                 radial-gradient(circle at 45% 75%, oklch(0.75 0.15 300 / 0.85), transparent 60%),
+                 radial-gradient(circle at 85% 80%, oklch(0.8 0.13 240 / 0.75), transparent 55%);
+  --grad-tile-a: linear-gradient(135deg, oklch(0.88 0.09 20), oklch(0.85 0.11 350));
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
