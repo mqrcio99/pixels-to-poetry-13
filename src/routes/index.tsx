@@ -109,7 +109,7 @@ function Index() {
               <MapPin size={16} strokeWidth={2.5} className="shrink-0" />
               <input
                 type="text"
-                placeholder="Ubicación"
+                placeholder="Localização"
                 className="w-full bg-transparent text-[13px] outline-none placeholder:text-black/50"
               />
               <Search size={16} strokeWidth={2.5} className="shrink-0 opacity-70" />
@@ -123,7 +123,7 @@ function Index() {
             </div>
 
             <div className="flex flex-wrap items-center justify-end gap-2">
-              {["Productos"].map((label) => (
+              {["Produtos"].map((label) => (
                 <span
                   key={label}
                   className="rounded-full px-3 py-1 text-[11px] font-semibold"
@@ -136,7 +136,7 @@ function Index() {
                 className="rounded-full px-3 py-1 text-[11px] font-semibold"
                 style={{ border: `1.5px solid ${INK}` }}
               >
-                Ofertas
+                Promoções
               </span>
             </div>
           </section>
