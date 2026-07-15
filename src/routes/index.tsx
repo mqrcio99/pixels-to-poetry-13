@@ -241,20 +241,20 @@ function Index() {
           >
             {[
               {
-                title: "Producto",
-                links: ["Bloques", "Plantillas", "Cambios", "Precios"],
+                title: "Produto",
+                links: ["Blocos", "Modelos", "Novidades", "Preços"],
               },
               {
-                title: "Estudio",
-                links: ["Nosotros", "Manifiesto", "Prensa", "Contacto"],
+                title: "Estúdio",
+                links: ["Sobre nós", "Manifesto", "Imprensa", "Contacto"],
               },
               {
                 title: "Recursos",
-                links: ["Docs", "Guías", "Kit Figma", "Soporte"],
+                links: ["Docs", "Guias", "Kit Figma", "Suporte"],
               },
               {
                 title: "Legal",
-                links: ["Términos", "Privacidad", "Cookies", "Licencias"],
+                links: ["Termos", "Privacidade", "Cookies", "Licenças"],
               },
             ].map((col) => (
               <div key={col.title} className="min-w-0">
