@@ -52,14 +52,14 @@ function Index() {
                 WebFrame
               </h1>
               <p className="mt-4 max-w-[52ch] text-[13px] leading-[1.55] opacity-80 md:text-[14px]">
-                <b>WebFrame</b> is a modular layout kit for people who like to
-                think in boxes. Draft, arrange, and ship a page in an
-                afternoon. Every block is honest about being a block — nothing
-                pretends to be something it isn't.
+                <b>WebFrame</b> é um kit de layout modular para quem gosta de
+                pensar em caixas. Rascunhe, organize e publique uma página
+                numa tarde. Cada bloco é honesto por ser um bloco — nada
+                finge ser aquilo que não é.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                {["Inicio", "Categorías", "Blog", "Equipo"].map((label, i) => (
+                {["Início", "Categorias", "Blog", "Equipa"].map((label, i) => (
                   <button
                     key={label}
                     className="rounded-full px-4 py-1.5 text-[12px] font-medium transition-transform hover:-translate-y-[1px]"
@@ -81,7 +81,7 @@ function Index() {
                 className="text-[11px] uppercase tracking-[0.25em]"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
-                Fuente
+                Fonte
               </p>
               <p className="mt-2 text-[13px] opacity-70">v.04 · 2026</p>
               <div
