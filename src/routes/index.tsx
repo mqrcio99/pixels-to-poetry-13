@@ -4,14 +4,14 @@ import { MapPin, Search } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "WebFrame — A Wireframe Playground" },
+      { title: "WebFrame — Um Playground de Wireframes" },
       {
         name: "description",
         content:
-          "WebFrame is a bold, high-contrast layout system for prototyping web pages fast.",
+          "WebFrame é um sistema de layout ousado e de alto contraste para prototipar páginas web rapidamente.",
       },
       { property: "og:title", content: "WebFrame" },
-      { property: "og:description", content: "A wireframe playground." },
+      { property: "og:description", content: "Um playground de wireframes." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -52,14 +52,14 @@ function Index() {
                 WebFrame
               </h1>
               <p className="mt-4 max-w-[52ch] text-[13px] leading-[1.55] opacity-80 md:text-[14px]">
-                <b>WebFrame</b> is a modular layout kit for people who like to
-                think in boxes. Draft, arrange, and ship a page in an
-                afternoon. Every block is honest about being a block — nothing
-                pretends to be something it isn't.
+                <b>WebFrame</b> é um kit de layout modular para quem gosta de
+                pensar em caixas. Rascunhe, organize e publique uma página
+                numa tarde. Cada bloco é honesto por ser um bloco — nada
+                finge ser aquilo que não é.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                {["Inicio", "Categorías", "Blog", "Equipo"].map((label, i) => (
+                {["Início", "Categorias", "Blog", "Equipa"].map((label, i) => (
                   <button
                     key={label}
                     className="rounded-full px-4 py-1.5 text-[12px] font-medium transition-transform hover:-translate-y-[1px]"
@@ -81,7 +81,7 @@ function Index() {
                 className="text-[11px] uppercase tracking-[0.25em]"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
-                Fuente
+                Fonte
               </p>
               <p className="mt-2 text-[13px] opacity-70">v.04 · 2026</p>
               <div
@@ -109,7 +109,7 @@ function Index() {
               <MapPin size={16} strokeWidth={2.5} className="shrink-0" />
               <input
                 type="text"
-                placeholder="Ubicación"
+                placeholder="Localização"
                 className="w-full bg-transparent text-[13px] outline-none placeholder:text-black/50"
               />
               <Search size={16} strokeWidth={2.5} className="shrink-0 opacity-70" />
@@ -123,7 +123,7 @@ function Index() {
             </div>
 
             <div className="flex flex-wrap items-center justify-end gap-2">
-              {["Productos"].map((label) => (
+              {["Produtos"].map((label) => (
                 <span
                   key={label}
                   className="rounded-full px-3 py-1 text-[11px] font-semibold"
@@ -136,7 +136,7 @@ function Index() {
                 className="rounded-full px-3 py-1 text-[11px] font-semibold"
                 style={{ border: `1.5px solid ${INK}` }}
               >
-                Ofertas
+                Promoções
               </span>
             </div>
           </section>
@@ -146,7 +146,7 @@ function Index() {
             className="mt-4 flex flex-wrap items-center gap-5 pb-4 text-[12px] font-medium uppercase tracking-[0.14em]"
             style={{ borderBottom: `1.5px solid ${INK}` }}
           >
-            {["Inicio", "Categorías", "Blog", "Equipo", "Vista 360"].map(
+            {["Início", "Categorias", "Blog", "Equipa", "Vista 360"].map(
               (label, i) => (
                 <a
                   key={label}
@@ -174,31 +174,31 @@ function Index() {
                 className="text-[11px] uppercase tracking-[0.25em] opacity-90"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
-                Manifiesto — 01
+                Manifesto — 01
               </p>
               <h2 className="mt-3 text-2xl font-black leading-[1.1] md:text-4xl">
-                Un lienzo honesto,
+                Uma tela honesta,
                 <br />
-                sin adornos innecesarios.
+                sem adornos desnecessários.
               </h2>
               <p className="mt-5 max-w-[58ch] text-[13.5px] leading-[1.65] opacity-95 md:text-[15px]">
-                Diseñamos con bordes visibles, tipografías serias y una sola
-                nota de color. La cuadrícula manda, el contenido responde.
-                Cada bloque tiene una razón de existir y ninguno pide
-                disculpas por ser rectangular.
+                Desenhamos com margens visíveis, tipografias sérias e uma
+                única nota de cor. A grelha manda, o conteúdo responde. Cada
+                bloco tem uma razão para existir e nenhum pede desculpa por
+                ser rectangular.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <button
                   className="px-5 py-2 text-[12px] font-bold uppercase tracking-widest"
                   style={{ background: INK, color: "#fff" }}
                 >
-                  Empezar →
+                  Começar →
                 </button>
                 <button
                   className="px-5 py-2 text-[12px] font-bold uppercase tracking-widest"
                   style={{ background: "transparent", color: "#fff", border: "1.5px solid #fff" }}
                 >
-                  Ver bloques
+                  Ver blocos
                 </button>
               </div>
             </div>
@@ -216,19 +216,19 @@ function Index() {
               <ul className="mt-4 space-y-3 text-[13px] leading-relaxed">
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">01</span>
-                  <span>Bordes visibles, jerarquía clara.</span>
+                  <span>Margens visíveis, hierarquia clara.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">02</span>
-                  <span>Un solo acento: naranja quemado.</span>
+                  <span>Um único acento: laranja queimado.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">03</span>
-                  <span>Textos que respiran, botones que empujan.</span>
+                  <span>Textos que respiram, botões que empurram.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="font-mono opacity-80">04</span>
-                  <span>Cero decoración sin propósito.</span>
+                  <span>Zero decoração sem propósito.</span>
                 </li>
               </ul>
             </aside>
@@ -241,20 +241,20 @@ function Index() {
           >
             {[
               {
-                title: "Producto",
-                links: ["Bloques", "Plantillas", "Cambios", "Precios"],
+                title: "Produto",
+                links: ["Blocos", "Modelos", "Novidades", "Preços"],
               },
               {
-                title: "Estudio",
-                links: ["Nosotros", "Manifiesto", "Prensa", "Contacto"],
+                title: "Estúdio",
+                links: ["Sobre nós", "Manifesto", "Imprensa", "Contacto"],
               },
               {
                 title: "Recursos",
-                links: ["Docs", "Guías", "Kit Figma", "Soporte"],
+                links: ["Docs", "Guias", "Kit Figma", "Suporte"],
               },
               {
                 title: "Legal",
-                links: ["Términos", "Privacidad", "Cookies", "Licencias"],
+                links: ["Termos", "Privacidade", "Cookies", "Licenças"],
               },
             ].map((col) => (
               <div key={col.title} className="min-w-0">
@@ -284,7 +284,7 @@ function Index() {
                 © 2026 WebFrame Studio
               </span>
               <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                Hecho con cuadrículas
+                Feito com grelhas
               </span>
             </div>
           </footer>
