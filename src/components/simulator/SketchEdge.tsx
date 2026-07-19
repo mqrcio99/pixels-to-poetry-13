@@ -1,0 +1,122 @@
+import {
+  BaseEdge,
+  EdgeLabelRenderer,
+  getBezierPath,
+  type EdgeProps,
+} from "reactflow";
+import { motion } from "framer-motion";
+import { useSim, type EdgeData } from "@/lib/simulator/store";
+
+export function SketchEdge({
+  id,
+  sourceX,
+  sourceY,
+  targetX,
+  targetY,
+  sourcePosition,
+  targetPosition,
+  data,
+  selected,
+}: EdgeProps<EdgeData>) {
+  const [path, labelX, labelY] = getBezierPath({
+    sourceX,
+    sourceY,
+    targetX,
+    targetY,
+    sourcePosition,
+    targetPosition,
+    curvature: 0.35,
+  });
+
+  const method = data?.method ?? "GET";
+  const currentEdgeIdx = useSim((s) => s.currentEdgeIdx);
+  const simStatus = useSim((s) => s.simStatus);
+  const simPath = useSim((s) => s.path);
+  const edges = useSim((s) => s.edges);
+  const speed = useSim((s) => s.simSpeed);
+
+  const activeEdgeId =
+    simStatus === "running" && currentEdgeIdx >= 0 && currentEdgeIdx < simPath.length - 1
+      ? edges.find(
+          (e) =>
+            e.source === simPath[currentEdgeIdx] &&
+            e.target === simPath[currentEdgeIdx + 1],
+        )?.id
+      : null;
+  const isActive = activeEdgeId === id;
+  const dur = speed === "slow" ? 1.4 : speed === "fast" ? 0.35 : 0.8;
+
+  return (
+    <>
+      <BaseEdge
+        id={id}
+        path={path}
+        style={{
+          stroke: "#111",
+          strokeWidth: selected ? 3 : 2,
+          strokeLinecap: "round",
+          filter: "url(#rough)",
+          fill: "none",
+        }}
+        markerEnd="url(#sketch-arrow)"
+      />
+      {isActive && (
+        <motion.circle
+          r={9}
+          fill="#F97316"
+          stroke="#111"
+          strokeWidth={2}
+          style={{ filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.35))" }}
+          initial={{ offsetDistance: "0%" }}
+          animate={{ offsetDistance: "100%" }}
+          transition={{ duration: dur, ease: "easeInOut" }}
+          // @ts-expect-error offsetPath is valid svg css
+          css={{}}
+        >
+          <animateMotion dur={`${dur}s`} repeatCount="1" path={path} fill="freeze" />
+        </motion.circle>
+      )}
+      <EdgeLabelRenderer>
+        <div
+          style={{
+            position: "absolute",
+            transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`,
+            pointerEvents: "all",
+            fontFamily: "'Kalam', cursive",
+          }}
+          className="nodrag nopan"
+        >
+          <MethodPill id={id} method={method} />
+        </div>
+      </EdgeLabelRenderer>
+    </>
+  );
+}
+
+function MethodPill({ id, method }: { id: string; method: string }) {
+  const setMethod = useSim((s) => s.setEdgeMethod);
+  const select = useSim((s) => s.select);
+  const colors: Record<string, string> = {
+    GET: "#BBF7D0",
+    POST: "#FEF3C7",
+    PUT: "#DBEAFE",
+    DELETE: "#FCA5A5",
+    WS: "#E9D5FF",
+    EVENT: "#FBCFE8",
+  };
+  return (
+    <select
+      value={method}
+      onChange={(e) => setMethod(id, e.target.value as never)}
+      onClick={() => select(id)}
+      className="cursor-pointer rounded-full border-2 border-black px-2 py-0.5 text-[12px] font-bold shadow-[2px_2px_0_#000]"
+      style={{ background: colors[method] ?? "#fff", filter: "url(#rough)" }}
+    >
+      {["GET", "POST", "PUT", "DELETE", "WS", "EVENT"].map((m) => (
+        <option key={m} value={m}>
+          {m}
+        </option>
+      ))}
+    </select>
+  );
+}
