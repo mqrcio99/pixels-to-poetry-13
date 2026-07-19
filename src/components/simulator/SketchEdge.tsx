@@ -4,7 +4,6 @@ import {
   getBezierPath,
   type EdgeProps,
 } from "reactflow";
-import { motion } from "framer-motion";
 import { useSim, type EdgeData } from "@/lib/simulator/store";
 
 export function SketchEdge({
@@ -61,20 +60,21 @@ export function SketchEdge({
         markerEnd="url(#sketch-arrow)"
       />
       {isActive && (
-        <motion.circle
+        <circle
           r={9}
           fill="#F97316"
           stroke="#111"
           strokeWidth={2}
           style={{ filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.35))" }}
-          initial={{ offsetDistance: "0%" }}
-          animate={{ offsetDistance: "100%" }}
-          transition={{ duration: dur, ease: "easeInOut" }}
-          // @ts-expect-error offsetPath is valid svg css
-          css={{}}
         >
-          <animateMotion dur={`${dur}s`} repeatCount="1" path={path} fill="freeze" />
-        </motion.circle>
+          <animateMotion
+            key={`${id}-${currentEdgeIdx}`}
+            dur={`${dur}s`}
+            repeatCount="1"
+            path={path}
+            fill="freeze"
+          />
+        </circle>
       )}
       <EdgeLabelRenderer>
         <div
