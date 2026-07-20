@@ -62,6 +62,16 @@ export const CATALOG: ComponentDef[] = [
     simMessage: "Servidor processa a lógica e monta a resposta.",
   },
   {
+    type: "microservice",
+    label: "Microsserviço",
+    icon: "🧩",
+    category: "backend",
+    color: "mint",
+    explanation:
+      "Um microsserviço é uma parte pequena e independente do backend, responsável por uma única capacidade (ex: pagamentos, usuários). Também tem capacidade limitada de requisições simultâneas.",
+    simMessage: "Microsserviço executa sua responsabilidade específica.",
+  },
+  {
     type: "queue",
     label: "Fila",
     icon: "📬",

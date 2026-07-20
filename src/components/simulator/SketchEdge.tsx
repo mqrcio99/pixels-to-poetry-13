@@ -28,22 +28,10 @@ export function SketchEdge({
   });
 
   const method = data?.method ?? "GET";
-  const currentEdgeIdx = useSim((s) => s.currentEdgeIdx);
   const simStatus = useSim((s) => s.simStatus);
-  const simPath = useSim((s) => s.path);
-  const edges = useSim((s) => s.edges);
   const speed = useSim((s) => s.simSpeed);
-
-  const activeEdgeId =
-    simStatus === "running" && currentEdgeIdx >= 0 && currentEdgeIdx < simPath.length - 1
-      ? edges.find(
-          (e) =>
-            e.source === simPath[currentEdgeIdx] &&
-            e.target === simPath[currentEdgeIdx + 1],
-        )?.id
-      : null;
-  const isActive = activeEdgeId === id;
-  const dur = speed === "slow" ? 1.4 : speed === "fast" ? 0.35 : 0.8;
+  const isActive = simStatus === "running";
+  const dur = speed === "slow" ? 1.4 : speed === "fast" ? 0.4 : 0.8;
 
   return (
     <>
@@ -61,18 +49,16 @@ export function SketchEdge({
       />
       {isActive && (
         <circle
-          r={9}
+          r={7}
           fill="#F97316"
           stroke="#111"
           strokeWidth={2}
           style={{ filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.35))" }}
         >
           <animateMotion
-            key={`${id}-${currentEdgeIdx}`}
             dur={`${dur}s`}
-            repeatCount="1"
+            repeatCount="indefinite"
             path={path}
-            fill="freeze"
           />
         </circle>
       )}
