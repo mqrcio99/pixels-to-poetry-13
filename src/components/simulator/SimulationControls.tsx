@@ -1,5 +1,6 @@
 import { useSim } from "@/lib/simulator/store";
 import { Play, Square, StepForward, Download, Trash } from "lucide-react";
+import { Tutorial } from "./Tutorial";
 
 export function SimulationControls() {
   const status = useSim((s) => s.simStatus);
@@ -86,6 +87,7 @@ export function SimulationControls() {
       </label>
 
       <div className="ml-auto flex items-center gap-2">
+        <Tutorial />
         <button className={btn} onClick={clearLog}>
           <Trash size={14} /> Limpar log
         </button>
