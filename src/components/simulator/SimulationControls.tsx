@@ -1,17 +1,16 @@
 import { useSim } from "@/lib/simulator/store";
-import { Play, Square, StepForward, Download, Trash } from "lucide-react";
+import { Play, Square, Download, Trash } from "lucide-react";
 import { Tutorial } from "./Tutorial";
 
 export function SimulationControls() {
   const status = useSim((s) => s.simStatus);
   const speed = useSim((s) => s.simSpeed);
-  const stepMode = useSim((s) => s.stepMode);
+  const load = useSim((s) => s.simLoad);
   const errorMode = useSim((s) => s.errorMode);
   const startSim = useSim((s) => s.startSim);
   const stopSim = useSim((s) => s.stopSim);
-  const advance = useSim((s) => s.advanceStep);
   const setSpeed = useSim((s) => s.setSpeed);
-  const setStepMode = useSim((s) => s.setStepMode);
+  const setLoad = useSim((s) => s.setLoad);
   const setErrorMode = useSim((s) => s.setErrorMode);
   const exportJSON = useSim((s) => s.exportJSON);
   const clearLog = useSim((s) => s.clearLog);
@@ -33,9 +32,7 @@ export function SimulationControls() {
       className="flex flex-wrap items-center gap-2 border-b-[2.5px] border-black px-4 py-3"
       style={{ background: "#F7F3E8", fontFamily: "'Kalam', cursive" }}
     >
-      <div className="mr-2 text-xl font-bold">
-        Simulador de Arquitetura
-      </div>
+      <div className="mr-2 text-xl font-bold">Simulador de Arquitetura</div>
       {status === "idle" || status === "done" ? (
         <button className={btn} onClick={startSim} style={{ background: "#BBF7D0" }}>
           <Play size={14} /> Simular
@@ -45,11 +42,23 @@ export function SimulationControls() {
           <Square size={14} /> Parar
         </button>
       )}
-      <button className={btn} onClick={advance} disabled={status !== "paused"}>
-        <StepForward size={14} /> Próximo
-      </button>
 
       <div className="mx-2 h-6 w-px bg-black/30" />
+
+      <label className="flex items-center gap-2 rounded-full border-2 border-black bg-white px-3 py-1 text-[13px] shadow-[2px_2px_0_#000]">
+        <span className="font-bold">Carga:</span>
+        <input
+          type="range"
+          min={1}
+          max={100}
+          value={load}
+          onChange={(e) => setLoad(Number(e.target.value))}
+          className="w-32 accent-black"
+          disabled={status === "running"}
+        />
+        <span className="w-8 text-right font-bold tabular-nums">{load}</span>
+        <span className="text-[11px] opacity-60">req</span>
+      </label>
 
       <label className="flex items-center gap-1 text-[13px]">
         Velocidade:
@@ -62,15 +71,6 @@ export function SimulationControls() {
           <option value="normal">Normal</option>
           <option value="fast">Rápida</option>
         </select>
-      </label>
-
-      <label className="flex items-center gap-1 text-[13px]">
-        <input
-          type="checkbox"
-          checked={stepMode}
-          onChange={(e) => setStepMode(e.target.checked)}
-        />
-        Passo a passo
       </label>
 
       <label className="flex items-center gap-1 text-[13px]">
@@ -98,3 +98,4 @@ export function SimulationControls() {
     </div>
   );
 }
+
