@@ -5,6 +5,7 @@ import { InspectorPanel } from "@/components/simulator/InspectorPanel";
 import { SimulationControls } from "@/components/simulator/SimulationControls";
 import { SimulationConsole } from "@/components/simulator/SimulationConsole";
 import { RoughDefs } from "@/components/simulator/RoughDefs";
+import { Postmortem } from "@/components/simulator/Postmortem";
 
 export const Route = createFileRoute("/")({
   component: SimulatorPage,
@@ -25,6 +26,7 @@ function SimulatorPage() {
         </div>
         <InspectorPanel />
       </div>
+      <Postmortem />
     </div>
   );
 }

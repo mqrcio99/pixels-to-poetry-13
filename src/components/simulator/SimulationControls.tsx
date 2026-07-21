@@ -1,4 +1,4 @@
-import { useSim } from "@/lib/simulator/store";
+import { useSim, PRESETS } from "@/lib/simulator/store";
 import { Play, Square, Download, Trash } from "lucide-react";
 import { Tutorial } from "./Tutorial";
 
@@ -6,12 +6,12 @@ export function SimulationControls() {
   const status = useSim((s) => s.simStatus);
   const speed = useSim((s) => s.simSpeed);
   const load = useSim((s) => s.simLoad);
-  const errorMode = useSim((s) => s.errorMode);
+  const preset = useSim((s) => s.chaosPreset);
   const startSim = useSim((s) => s.startSim);
   const stopSim = useSim((s) => s.stopSim);
   const setSpeed = useSim((s) => s.setSpeed);
   const setLoad = useSim((s) => s.setLoad);
-  const setErrorMode = useSim((s) => s.setErrorMode);
+  const applyPreset = useSim((s) => s.applyPreset);
   const exportJSON = useSim((s) => s.exportJSON);
   const clearLog = useSim((s) => s.clearLog);
 
@@ -43,7 +43,24 @@ export function SimulationControls() {
         </button>
       )}
 
-      <div className="mx-2 h-6 w-px bg-black/30" />
+      <div className="mx-1 h-6 w-px bg-black/30" />
+
+      <label className="flex items-center gap-2 rounded-full border-2 border-black bg-white px-3 py-1 text-[13px] shadow-[2px_2px_0_#000]">
+        <span className="font-bold">🎭 Cenário:</span>
+        <select
+          value={preset}
+          onChange={(e) => applyPreset(e.target.value)}
+          className="rounded-md border border-black/30 bg-white px-1 py-0.5 text-[12px] font-bold"
+          title={PRESETS[preset]?.description}
+          disabled={status === "running"}
+        >
+          {Object.entries(PRESETS).map(([k, p]) => (
+            <option key={k} value={k}>
+              {p.label}
+            </option>
+          ))}
+        </select>
+      </label>
 
       <label className="flex items-center gap-2 rounded-full border-2 border-black bg-white px-3 py-1 text-[13px] shadow-[2px_2px_0_#000]">
         <span className="font-bold">Carga:</span>
@@ -53,7 +70,7 @@ export function SimulationControls() {
           max={100}
           value={load}
           onChange={(e) => setLoad(Number(e.target.value))}
-          className="w-32 accent-black"
+          className="w-28 accent-black"
           disabled={status === "running"}
         />
         <span className="w-8 text-right font-bold tabular-nums">{load}</span>
@@ -73,19 +90,6 @@ export function SimulationControls() {
         </select>
       </label>
 
-      <label className="flex items-center gap-1 text-[13px]">
-        Erro:
-        <select
-          className="rounded-full border-2 border-black bg-white px-2 py-0.5 text-[12px] font-bold shadow-[2px_2px_0_#000]"
-          value={errorMode}
-          onChange={(e) => setErrorMode(e.target.value as never)}
-        >
-          <option value="none">Nenhum</option>
-          <option value="500">HTTP 500</option>
-          <option value="timeout">Timeout</option>
-        </select>
-      </label>
-
       <div className="ml-auto flex items-center gap-2">
         <Tutorial />
         <button className={btn} onClick={clearLog}>
@@ -98,4 +102,3 @@ export function SimulationControls() {
     </div>
   );
 }
-
