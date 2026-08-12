@@ -15,25 +15,25 @@ export function Sidebar() {
 
   return (
     <aside
-      className="flex h-full w-[240px] shrink-0 flex-col gap-4 overflow-y-auto border-r-[2.5px] border-black p-4"
+      className="flex h-full w-full shrink-0 flex-col gap-3 overflow-y-auto border-black p-3 md:w-[240px] md:gap-4 md:border-r-[2.5px] md:p-4"
       style={{
         background: "#FAF6EA",
         fontFamily: "'Kalam', cursive",
       }}
     >
       <div>
-        <h2 className="text-2xl font-bold leading-tight text-black">Componentes</h2>
-        <p className="mt-1 text-[13px] leading-snug text-black/70">
+        <h2 className="text-lg font-bold leading-tight text-black md:text-2xl">Componentes</h2>
+        <p className="mt-0.5 text-[12px] leading-snug text-black/70 md:mt-1 md:text-[13px]">
           Arraste para o quadro. Ligue os pontos pretos das laterais.
         </p>
       </div>
 
       {(Object.keys(grouped) as ComponentCategory[]).map((cat) => (
         <div key={cat}>
-          <div className="mb-2 text-[11px] font-bold uppercase tracking-widest text-black/60">
+          <div className="mb-1.5 text-[10px] font-bold uppercase tracking-widest text-black/60 md:mb-2 md:text-[11px]">
             {CATEGORY_LABELS[cat]}
           </div>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-3 gap-1.5 md:grid-cols-2 md:gap-2">
             {grouped[cat].map((c) => {
               const col = COLOR_MAP[c.color];
               return (
@@ -44,17 +44,16 @@ export function Sidebar() {
                     e.dataTransfer.setData("application/x-arch-node", c.type);
                     e.dataTransfer.effectAllowed = "move";
                   }}
-                  className="flex flex-col items-center justify-center gap-1 rounded-xl border-2 border-black p-2 text-center transition-transform hover:-translate-y-0.5 active:cursor-grabbing"
+                  className="flex flex-col items-center justify-center gap-0.5 rounded-xl border-2 border-black p-1.5 text-center transition-transform hover:-translate-y-0.5 active:cursor-grabbing md:gap-1 md:p-2"
                   style={{
                     background: col.bg,
-                    filter: "url(#rough)",
                     boxShadow: "2px 2px 0 #000",
                     cursor: "grab",
                   }}
                   title={c.label}
                 >
-                  <span className="text-2xl leading-none">{c.icon}</span>
-                  <span className="text-[12px] font-bold leading-tight">{c.label}</span>
+                  <span className="text-xl leading-none md:text-2xl">{c.icon}</span>
+                  <span className="text-[10px] font-bold leading-tight md:text-[12px]">{c.label}</span>
                 </button>
               );
             })}
