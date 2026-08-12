@@ -43,14 +43,14 @@ export function SimulationControls() {
         </button>
       )}
 
-      <div className="mx-1 h-6 w-px bg-black/30" />
+      <div className="mx-1 hidden h-6 w-px bg-black/30 md:block" />
 
-      <label className="flex items-center gap-2 rounded-full border-2 border-black bg-white px-3 py-1 text-[13px] shadow-[2px_2px_0_#000]">
-        <span className="font-bold">🎭 Cenário:</span>
+      <label className="flex items-center gap-1.5 rounded-full border-2 border-black bg-white px-2 py-0.5 text-[12px] shadow-[2px_2px_0_#000] md:gap-2 md:px-3 md:py-1 md:text-[13px]">
+        <span className="font-bold">🎭</span>
         <select
           value={preset}
           onChange={(e) => applyPreset(e.target.value)}
-          className="rounded-md border border-black/30 bg-white px-1 py-0.5 text-[12px] font-bold"
+          className="max-w-[120px] rounded-md border border-black/30 bg-white px-1 py-0.5 text-[12px] font-bold md:max-w-none"
           title={PRESETS[preset]?.description}
           disabled={status === "running"}
         >
@@ -62,7 +62,7 @@ export function SimulationControls() {
         </select>
       </label>
 
-      <label className="flex items-center gap-2 rounded-full border-2 border-black bg-white px-3 py-1 text-[13px] shadow-[2px_2px_0_#000]">
+      <label className="flex items-center gap-1.5 rounded-full border-2 border-black bg-white px-2 py-0.5 text-[12px] shadow-[2px_2px_0_#000] md:gap-2 md:px-3 md:py-1 md:text-[13px]">
         <span className="font-bold">Carga:</span>
         <input
           type="range"
@@ -70,15 +70,15 @@ export function SimulationControls() {
           max={100}
           value={load}
           onChange={(e) => setLoad(Number(e.target.value))}
-          className="w-28 accent-black"
+          className="w-16 accent-black md:w-28"
           disabled={status === "running"}
         />
-        <span className="w-8 text-right font-bold tabular-nums">{load}</span>
-        <span className="text-[11px] opacity-60">req</span>
+        <span className="w-6 text-right font-bold tabular-nums md:w-8">{load}</span>
       </label>
 
-      <label className="flex items-center gap-1 text-[13px]">
-        Velocidade:
+      <label className="flex items-center gap-1 text-[12px] md:text-[13px]">
+        <span className="hidden md:inline">Velocidade:</span>
+        <span className="md:hidden">⏱</span>
         <select
           className="rounded-full border-2 border-black bg-white px-2 py-0.5 text-[12px] font-bold shadow-[2px_2px_0_#000]"
           value={speed}
@@ -90,13 +90,13 @@ export function SimulationControls() {
         </select>
       </label>
 
-      <div className="ml-auto flex items-center gap-2">
+      <div className="flex items-center gap-1.5 md:ml-auto md:gap-2">
         <Tutorial />
-        <button className={btn} onClick={clearLog}>
-          <Trash size={14} /> Limpar log
+        <button className={btn} onClick={clearLog} title="Limpar log">
+          <Trash size={14} /> <span className="hidden md:inline">Limpar log</span>
         </button>
-        <button className={btn} onClick={download}>
-          <Download size={14} /> Exportar JSON
+        <button className={btn} onClick={download} title="Exportar JSON">
+          <Download size={14} /> <span className="hidden md:inline">Exportar JSON</span>
         </button>
       </div>
     </div>
