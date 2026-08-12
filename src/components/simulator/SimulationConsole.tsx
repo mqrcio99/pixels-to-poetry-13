@@ -25,7 +25,7 @@ export function SimulationConsole() {
 
   return (
     <div
-      className="flex h-[220px] shrink-0 border-t-[2.5px] border-black"
+      className="flex h-full shrink-0 flex-col border-t-[2.5px] border-black md:h-[220px] md:flex-row"
       style={{ background: "#111", color: "#F7F3E8", fontFamily: "'Kalam', cursive" }}
     >
       <div className="flex min-w-0 flex-1 flex-col">
@@ -62,7 +62,7 @@ export function SimulationConsole() {
           })}
         </div>
       </div>
-      <div className="flex w-[240px] shrink-0 flex-col gap-2 border-l border-white/20 p-3">
+      <div className="hidden w-[240px] shrink-0 flex-col gap-2 border-l border-white/20 p-3 md:flex">
         <LatencyChart />
       </div>
     </div>

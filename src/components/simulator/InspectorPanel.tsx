@@ -22,7 +22,7 @@ export function InspectorPanel() {
 
   return (
     <aside
-      className="flex h-full w-[300px] shrink-0 flex-col gap-4 overflow-y-auto border-l-[2.5px] border-black p-4"
+      className="flex h-full w-full shrink-0 flex-col gap-3 overflow-y-auto border-black p-3 md:w-[300px] md:gap-4 md:border-l-[2.5px] md:p-4"
       style={{ background: "#FAF6EA", fontFamily: "'Kalam', cursive" }}
     >
       <h2 className="text-2xl font-bold leading-tight">Detalhes</h2>
