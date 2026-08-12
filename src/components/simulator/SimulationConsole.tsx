@@ -62,7 +62,7 @@ export function SimulationConsole() {
           })}
         </div>
       </div>
-      <div className="flex w-[240px] shrink-0 flex-col gap-2 border-l border-white/20 p-3">
+      <div className="hidden w-[240px] shrink-0 flex-col gap-2 border-l border-white/20 p-3 md:flex">
         <LatencyChart />
       </div>
     </div>
