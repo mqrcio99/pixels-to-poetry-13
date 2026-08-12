@@ -2,12 +2,15 @@ import { Handle, Position, type NodeProps } from "reactflow";
 import { COLOR_MAP } from "@/lib/simulator/catalog";
 import { useSim, type NodeData } from "@/lib/simulator/store";
 import { AnimatePresence, motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function NodeCard({ id, data, selected }: NodeProps<NodeData>) {
   const c = COLOR_MAP[data.color] ?? COLOR_MAP.sky;
   const bubble = useSim((s) => (s.bubble?.nodeId === id ? s.bubble : null));
   const stat = useSim((s) => s.nodeStats[id]);
   const simStatus = useSim((s) => s.simStatus);
+  const isMobile = useIsMobile();
+  const rough = isMobile ? undefined : "url(#rough)";
 
   const hasCapacity =
     (data.type === "server" || data.type === "microservice") && stat;
