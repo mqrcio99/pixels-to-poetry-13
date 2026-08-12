@@ -22,7 +22,7 @@ export function Sidebar() {
       }}
     >
       <div>
-        <h2 className="text-lg font-bold leading-tight text-black md:text-2xl">Componentes</h2>
+        <h2 className="text-xl font-bold leading-tight text-black md:text-2xl">Componentes</h2>
         <p className="mt-0.5 text-[12px] leading-snug text-black/70 md:mt-1 md:text-[13px]">
           Arraste para o quadro. Ligue os pontos pretos das laterais.
         </p>
@@ -52,7 +52,7 @@ export function Sidebar() {
                   }}
                   title={c.label}
                 >
-                  <span className="text-xl leading-none md:text-2xl">{c.icon}</span>
+                  <span className="text-lg leading-none md:text-2xl">{c.icon}</span>
                   <span className="text-[10px] font-bold leading-tight md:text-[12px]">{c.label}</span>
                 </button>
               );
