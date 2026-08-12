@@ -16,7 +16,7 @@ export function SimulationControls() {
   const clearLog = useSim((s) => s.clearLog);
 
   const btn =
-    "flex items-center gap-1.5 rounded-full border-2 border-black bg-white px-3 py-1.5 text-[13px] font-bold shadow-[2px_2px_0_#000] hover:-translate-y-0.5 transition-transform disabled:opacity-40";
+    "flex items-center gap-1 rounded-full border-2 border-black bg-white px-2.5 py-1 text-[12px] font-bold shadow-[2px_2px_0_#000] transition-transform hover:-translate-y-0.5 disabled:opacity-40 md:gap-1.5 md:px-3 md:py-1.5 md:text-[13px]";
 
   const download = () => {
     const blob = new Blob([exportJSON()], { type: "application/json" });
@@ -29,10 +29,10 @@ export function SimulationControls() {
 
   return (
     <div
-      className="flex flex-wrap items-center gap-2 border-b-[2.5px] border-black px-4 py-3"
+      className="flex flex-wrap items-center gap-1.5 border-b-[2.5px] border-black px-2 py-2 md:gap-2 md:px-4 md:py-3"
       style={{ background: "#F7F3E8", fontFamily: "'Kalam', cursive" }}
     >
-      <div className="mr-2 text-xl font-bold">Simulador de Arquitetura</div>
+      <div className="mr-1 text-[15px] font-bold md:mr-2 md:text-xl">Simulador de Arquitetura</div>
       {status === "idle" || status === "done" ? (
         <button className={btn} onClick={startSim} style={{ background: "#BBF7D0" }}>
           <Play size={14} /> Simular
