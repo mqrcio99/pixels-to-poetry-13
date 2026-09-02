@@ -5,7 +5,6 @@ import {
   type EdgeProps,
 } from "reactflow";
 import { useSim, type EdgeData } from "@/lib/simulator/store";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 export function SketchEdge({
   id,
