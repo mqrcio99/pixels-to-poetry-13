@@ -15,7 +15,7 @@ export function Sidebar() {
 
   return (
     <aside
-      className="flex h-full w-full shrink-0 flex-col gap-3 overflow-y-auto border-black p-3 md:w-[240px] md:gap-4 md:border-r-[2.5px] md:p-4"
+      className="flex h-full w-[240px] shrink-0 flex-col gap-4 overflow-y-auto border-r-[2.5px] border-black p-4"
       style={{
         background: "#FAF6EA",
         fontFamily: "'Kalam', cursive",
