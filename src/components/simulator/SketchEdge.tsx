@@ -42,18 +42,18 @@ export function SketchEdge({
           stroke: "#111",
           strokeWidth: selected ? 3 : 2,
           strokeLinecap: "round",
-          filter: isMobile ? undefined : "url(#rough)",
+          filter: "url(#rough)",
           fill: "none",
         }}
         markerEnd="url(#sketch-arrow)"
       />
       {isActive && (
         <circle
-          r={isMobile ? 5 : 7}
+          r={7}
           fill="#F97316"
           stroke="#111"
           strokeWidth={2}
-          style={isMobile ? undefined : { filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.35))" }}
+          style={{ filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.35))" }}
         >
           <animateMotion
             dur={`${dur}s`}
