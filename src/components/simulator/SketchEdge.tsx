@@ -5,7 +5,6 @@ import {
   type EdgeProps,
 } from "reactflow";
 import { useSim, type EdgeData } from "@/lib/simulator/store";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 export function SketchEdge({
   id,
@@ -33,7 +32,6 @@ export function SketchEdge({
   const speed = useSim((s) => s.simSpeed);
   const isActive = simStatus === "running";
   const dur = speed === "slow" ? 1.4 : speed === "fast" ? 0.4 : 0.8;
-  const isMobile = useIsMobile();
 
   return (
     <>
@@ -44,18 +42,18 @@ export function SketchEdge({
           stroke: "#111",
           strokeWidth: selected ? 3 : 2,
           strokeLinecap: "round",
-          filter: isMobile ? undefined : "url(#rough)",
+          filter: "url(#rough)",
           fill: "none",
         }}
         markerEnd="url(#sketch-arrow)"
       />
       {isActive && (
         <circle
-          r={isMobile ? 5 : 7}
+          r={7}
           fill="#F97316"
           stroke="#111"
           strokeWidth={2}
-          style={isMobile ? undefined : { filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.35))" }}
+          style={{ filter: "drop-shadow(2px 2px 0 rgba(0,0,0,0.35))" }}
         >
           <animateMotion
             dur={`${dur}s`}

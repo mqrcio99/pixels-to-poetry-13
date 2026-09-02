@@ -2,15 +2,12 @@ import { Handle, Position, type NodeProps } from "reactflow";
 import { COLOR_MAP } from "@/lib/simulator/catalog";
 import { useSim, type NodeData } from "@/lib/simulator/store";
 import { AnimatePresence, motion } from "framer-motion";
-import { useIsMobile } from "@/hooks/use-mobile";
-
 export function NodeCard({ id, data, selected }: NodeProps<NodeData>) {
   const c = COLOR_MAP[data.color] ?? COLOR_MAP.sky;
   const bubble = useSim((s) => (s.bubble?.nodeId === id ? s.bubble : null));
   const stat = useSim((s) => s.nodeStats[id]);
   const simStatus = useSim((s) => s.simStatus);
-  const isMobile = useIsMobile();
-  const rough = isMobile ? undefined : "url(#rough)";
+  const rough = "url(#rough)";
 
   const hasCapacity =
     (data.type === "server" || data.type === "microservice") && stat;
@@ -37,7 +34,7 @@ export function NodeCard({ id, data, selected }: NodeProps<NodeData>) {
             initial={{ opacity: 0, y: 6, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.9 }}
-            className="absolute -top-16 left-1/2 z-20 w-48 -translate-x-1/2 rounded-2xl border-2 border-black bg-white px-3 py-2 text-[12px] shadow-[3px_3px_0_#000] md:w-56 md:text-[13px]"
+            className="absolute -top-16 left-1/2 z-20 w-56 -translate-x-1/2 rounded-2xl border-2 border-black bg-white px-3 py-2 text-[13px] shadow-[3px_3px_0_#000]"
             style={{ filter: rough, fontFamily: "'Kalam', cursive" }}
           >
             {bubble.text}
@@ -47,7 +44,7 @@ export function NodeCard({ id, data, selected }: NodeProps<NodeData>) {
       </AnimatePresence>
 
       <div
-        className="relative flex h-[84px] w-[150px] flex-col items-center justify-center gap-1 rounded-2xl border-[2.5px] border-black px-2 text-center md:h-[100px] md:w-[180px] md:px-3"
+        className="relative flex h-[100px] w-[180px] flex-col items-center justify-center gap-1 rounded-2xl border-[2.5px] border-black px-3 text-center"
         style={{
           background: overload ? "#FCA5A5" : c.bg,
           filter: rough,
@@ -55,11 +52,11 @@ export function NodeCard({ id, data, selected }: NodeProps<NodeData>) {
           fontFamily: "'Kalam', cursive",
         }}
       >
-        <div className="text-2xl leading-none md:text-3xl">{data.icon}</div>
-        <div className="text-[13px] font-bold leading-tight text-black md:text-[15px]">{data.label}</div>
+        <div className="text-3xl leading-none">{data.icon}</div>
+        <div className="text-[15px] font-bold leading-tight text-black">{data.label}</div>
 
         {hasCapacity && (
-          <div className="mt-1 w-[110px] md:w-[140px]">
+          <div className="mt-1 w-[140px]">
             <div className="h-2 w-full overflow-hidden rounded-full border border-black bg-white/70">
               <div
                 className="h-full transition-all"
