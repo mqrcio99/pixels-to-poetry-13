@@ -32,7 +32,6 @@ export function SketchEdge({
   const speed = useSim((s) => s.simSpeed);
   const isActive = simStatus === "running";
   const dur = speed === "slow" ? 1.4 : speed === "fast" ? 0.4 : 0.8;
-  const isMobile = useIsMobile();
 
   return (
     <>
