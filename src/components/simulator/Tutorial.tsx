@@ -84,7 +84,19 @@ export function Tutorial() {
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-md rounded-2xl border-[2.5px] border-black p-6 shadow-[6px_6px_0_#000]"
-...
+              style={{
+                background: "#FAF6EA",
+                fontFamily: "'Kalam', cursive",
+              }}
+            >
+              <button
+                onClick={close}
+                className="absolute right-3 top-3 rounded-full border-2 border-black bg-white p-1 shadow-[2px_2px_0_#000]"
+                aria-label="Fechar"
+              >
+                <X size={14} />
+              </button>
+
               <div className="mb-3 text-5xl">{step.emoji}</div>
               <h3 className="mb-2 text-2xl font-bold leading-tight">{step.title}</h3>
               <p className="text-[15px] leading-relaxed text-black/80">{step.body}</p>
