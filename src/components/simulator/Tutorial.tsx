@@ -63,10 +63,10 @@ export function Tutorial() {
       <button
         onClick={openAgain}
         title="Ver tutorial"
-        className="flex items-center gap-1 rounded-full border-2 border-black bg-white px-2.5 py-1 text-[12px] font-bold shadow-[2px_2px_0_#000] transition-transform hover:-translate-y-0.5 md:gap-1.5 md:px-3 md:py-1.5 md:text-[13px]"
+        className="flex items-center gap-1.5 rounded-full border-2 border-black bg-white px-3 py-1.5 text-[13px] font-bold shadow-[2px_2px_0_#000] transition-transform hover:-translate-y-0.5"
         style={{ fontFamily: "'Kalam', cursive" }}
       >
-        <HelpCircle size={14} /> <span className="hidden md:inline">Tutorial</span>
+        <HelpCircle size={14} /> Tutorial
       </button>
 
       <AnimatePresence>
@@ -83,23 +83,11 @@ export function Tutorial() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-md rounded-2xl border-[2.5px] border-black p-4 shadow-[6px_6px_0_#000] md:p-6"
-              style={{
-                background: "#FAF6EA",
-                fontFamily: "'Kalam', cursive",
-              }}
-            >
-              <button
-                onClick={close}
-                className="absolute right-3 top-3 rounded-full border-2 border-black bg-white p-1 shadow-[2px_2px_0_#000]"
-                aria-label="Fechar"
-              >
-                <X size={14} />
-              </button>
-
-              <div className="mb-2 text-4xl md:mb-3 md:text-5xl">{step.emoji}</div>
-              <h3 className="mb-2 text-xl font-bold leading-tight md:text-2xl">{step.title}</h3>
-              <p className="text-[14px] leading-relaxed text-black/80 md:text-[15px]">{step.body}</p>
+              className="relative w-full max-w-md rounded-2xl border-[2.5px] border-black p-6 shadow-[6px_6px_0_#000]"
+...
+              <div className="mb-3 text-5xl">{step.emoji}</div>
+              <h3 className="mb-2 text-2xl font-bold leading-tight">{step.title}</h3>
+              <p className="text-[15px] leading-relaxed text-black/80">{step.body}</p>
 
               <div className="mt-5 flex items-center justify-between gap-3">
                 <div className="flex gap-1.5">
