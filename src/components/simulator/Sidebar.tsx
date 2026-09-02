@@ -22,18 +22,18 @@ export function Sidebar() {
       }}
     >
       <div>
-        <h2 className="text-xl font-bold leading-tight text-black md:text-2xl">Componentes</h2>
-        <p className="mt-0.5 text-[12px] leading-snug text-black/70 md:mt-1 md:text-[13px]">
+        <h2 className="text-2xl font-bold leading-tight text-black">Componentes</h2>
+        <p className="mt-1 text-[13px] leading-snug text-black/70">
           Arraste para o quadro. Ligue os pontos pretos das laterais.
         </p>
       </div>
 
       {(Object.keys(grouped) as ComponentCategory[]).map((cat) => (
         <div key={cat}>
-          <div className="mb-1.5 text-[10px] font-bold uppercase tracking-widest text-black/60 md:mb-2 md:text-[11px]">
+          <div className="mb-2 text-[11px] font-bold uppercase tracking-widest text-black/60">
             {CATEGORY_LABELS[cat]}
           </div>
-          <div className="grid grid-cols-3 gap-1.5 md:grid-cols-2 md:gap-2">
+          <div className="grid grid-cols-2 gap-2">
             {grouped[cat].map((c) => {
               const col = COLOR_MAP[c.color];
               return (
@@ -44,7 +44,7 @@ export function Sidebar() {
                     e.dataTransfer.setData("application/x-arch-node", c.type);
                     e.dataTransfer.effectAllowed = "move";
                   }}
-                  className="flex flex-col items-center justify-center gap-0.5 rounded-xl border-2 border-black p-1.5 text-center transition-transform hover:-translate-y-0.5 active:cursor-grabbing md:gap-1 md:p-2"
+                  className="flex flex-col items-center justify-center gap-1 rounded-xl border-2 border-black p-2 text-center transition-transform hover:-translate-y-0.5 active:cursor-grabbing"
                   style={{
                     background: col.bg,
                     boxShadow: "2px 2px 0 #000",
@@ -52,8 +52,8 @@ export function Sidebar() {
                   }}
                   title={c.label}
                 >
-                  <span className="text-lg leading-none md:text-2xl">{c.icon}</span>
-                  <span className="text-[10px] font-bold leading-tight md:text-[12px]">{c.label}</span>
+                  <span className="text-2xl leading-none">{c.icon}</span>
+                  <span className="text-[12px] font-bold leading-tight">{c.label}</span>
                 </button>
               );
             })}
