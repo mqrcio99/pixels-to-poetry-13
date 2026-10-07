@@ -1,3 +1,6 @@
+https://pixels-to-poetry-13.lovable.app/
+
+
 # Simulador de Arquitetura
 
 Ferramenta educacional para visualizar, de forma interativa, como os componentes de um sistema de software se comunicam entre si — pensada para alunos que estão aprendendo conceitos de arquitetura, abstração de código e escalabilidade.
